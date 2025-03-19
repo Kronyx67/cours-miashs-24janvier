@@ -2,7 +2,7 @@ import { searchSeries } from "./tmdbApi.js";
 
 export const getApiSeries = async (request, reply) => {
   try {
-    const series = await searchSeries(request.query.title);
+    const series = await searchSeries("Stranger Things");
     console.log(series);
     reply.send(series);
   } catch (error) {
