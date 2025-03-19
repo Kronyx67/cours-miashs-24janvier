@@ -2,7 +2,7 @@
 
 // Fonction pour récupérer la météo actuelle
 export const getWeather = async (location) => {
-  const apiKey = "YOUR_API_KEY"; // Remplace par ta propre clé API
+  const apiKey = "7d6d3d99d53643369a8130315251301"; // Remplace par ta propre clé API
   const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${location}`);
   
   if (!response.ok) {
