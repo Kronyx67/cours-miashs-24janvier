@@ -69,7 +69,8 @@ export const getUserWatchlist = async () => {
 
 export const updateMovieFromWatchlist = async (
   movieId,
-  addToWatchlist = true
+  addToWatchlist = true,
+  favorite = true
 ) => {
   const headers = getTmdbHeaders();
   const accountId = process.env.TMDB_ACCOUNT_ID;
@@ -82,6 +83,7 @@ export const updateMovieFromWatchlist = async (
         media_id: movieId,
         watchlist: addToWatchlist,
         media_type: "movie",
+        favorite: favorite,
       }),
     }
   );
