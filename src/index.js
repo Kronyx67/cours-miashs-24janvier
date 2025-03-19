@@ -6,10 +6,13 @@ import { getApiWatchlist } from "./getApiWatchlist.js";
 import { postAddToWatchlist } from "./postAddToWatchlist.js";
 import { postRemoveFromWatchlist } from "./removeFromWatchlist.js";
 import { getHelloWorld } from "./getHelloWorld.js";
+import { getApiWeather } from "./getApiWeather.js";
+
 const fastify = Fastify({
   logger: true,
 });
 
+fastify.get("/api/weather", getApiWeather); // Route pour obtenir la météo
 fastify.get("/", getHelloWorld);
 fastify.get("/api/movies", getApiMovies);
 fastify.get("/api/series", getApiSeries);
