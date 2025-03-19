@@ -1,6 +1,7 @@
 import "dotenv/config";
 import Fastify from "fastify";
 import { getApiMovies } from "./getApiMovies.js";
+import { getApiSeries } from "./getApiSeries.js";
 import { getApiWatchlist } from "./getApiWatchlist.js";
 import { postAddToWatchlist } from "./postAddToWatchlist.js";
 import { postRemoveFromWatchlist } from "./removeFromWatchlist.js";
@@ -11,8 +12,10 @@ const fastify = Fastify({
 
 fastify.get("/", getHelloWorld);
 fastify.get("/api/movies", getApiMovies);
+fastify.get("/api/series", getApiSeries);
 fastify.get("/api/watchlist", getApiWatchlist);
 fastify.post("/api/watchlist", postAddToWatchlist);
+
 fastify.delete("/api/watchlist", postRemoveFromWatchlist);
 fastify.listen(
   {

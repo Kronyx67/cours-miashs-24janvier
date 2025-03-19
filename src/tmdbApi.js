@@ -31,6 +31,23 @@ export const searchMovies = async (query) => {
   return data.results;
 };
 
+export const searchSeries = async (query) =>{
+  const headers = getTmdbHeaders();
+  const response = await fetch(
+    `https://api.themoviedb.org/3/search/tv?query=${query}`,
+    {
+      ...headers,
+    }
+  );
+  if (!response.ok) {
+    throw new Error(`Failed to fetch series: ${response.status}`);
+  }
+
+  const data = await response.json();
+
+  return data.results;
+};
+
 export const getUserWatchlist = async () => {
   const headers = getTmdbHeaders();
   const accountId = process.env.TMDB_ACCOUNT_ID;
@@ -79,3 +96,5 @@ export const updateMovieFromWatchlist = async (
 
   return response.json();
 };
+
+
